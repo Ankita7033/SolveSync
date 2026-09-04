@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeChef → GitHub Sync</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+      width: 320px; margin: 0; padding: 14px 16px;
+      background: #1e1e1e; color: #eee;
+    }
+    h1 { font-size: 15px; margin: 0 0 4px; }
+    .sub { font-size: 11px; color: #9a9a9a; margin-bottom: 12px; }
+    label { display: block; font-size: 11px; margin: 10px 0 3px; color: #bbb; }
+    input[type=text], input[type=password] {
+      width: 100%; box-sizing: border-box; padding: 6px 8px;
+      background: #2a2a2a; border: 1px solid #444; border-radius: 6px;
+      color: #eee; font-size: 12px;
+    }
+    .row { display: flex; gap: 8px; }
+    .row > div { flex: 1; }
+    .toggle { display: flex; align-items: center; gap: 6px; margin: 12px 0 4px; font-size: 12px; }
+    button {
+      width: 100%; margin-top: 12px; padding: 8px; border: 0; border-radius: 6px;
+      background: #5b4636; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    button.secondary { background: #333; }
+    button:hover { filter: brightness(1.1); }
+    .status { margin-top: 10px; font-size: 11px; min-height: 16px; white-space: pre-wrap; }
+    .ok { color: #6fcf97; }
+    .err { color: #ff6b6b; }
+    a { color: #8ab4f8; }
+    .hint { font-size: 10px; color: #777; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <h1>CodeChef → GitHub Sync</h1>
+  <div class="sub">Accepted solutions auto-commit to your repo.</div>
+
+  <label>GitHub username (owner)</label>
+  <input type="text" id="owner" placeholder="your-github-username" autocomplete="off" />
+
+  <div class="row">
+    <div>
+      <label>Repository</label>
+      <input type="text" id="repo" placeholder="codechef_solution" />
+    </div>
+    <div>
+      <label>Branch</label>
+      <input type="text" id="branch" placeholder="main" />
+    </div>
+  </div>
+
+  <label>Fine-grained token (Contents: R/W)</label>
+  <input type="password" id="token" placeholder="github_pat_..." autocomplete="off" />
+  <div class="hint">Scope it to only your solutions repo. Stored locally in this browser.</div>
+
+  <div class="toggle">
+    <input type="checkbox" id="autoCommit" checked />
+    <label for="autoCommit" style="margin:0">Auto-commit on Accepted</label>
+  </div>
+
+  <button id="save">Save settings</button>
+  <button id="test" class="secondary">Test connection</button>
+  <button id="commitLast" class="secondary">Commit last captured solution</button>
+
+  <div class="status" id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
