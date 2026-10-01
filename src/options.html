@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>GFG Solution Sync — Settings</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 480px; margin: 24px auto; color: #1f2328; }
+  h1 { font-size: 18px; }
+  label { display: block; margin-top: 14px; font-size: 13px; font-weight: 600; }
+  input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; font-size: 14px; }
+  button { margin-top: 16px; padding: 8px 14px; font-size: 14px; cursor: pointer; }
+  .row { display: flex; gap: 10px; }
+  .row > div { flex: 1; }
+  #status { margin-top: 12px; font-size: 13px; white-space: pre-wrap; }
+  .ok { color: #1a7f37; }
+  .err { color: #cf222e; }
+  .hint { font-size: 12px; color: #59636e; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <h1>GFG Solution Sync</h1>
+  <p class="hint">
+    Create a <b>fine-grained personal access token</b> at
+    github.com/settings/personal-access-tokens/new, scoped to only the repo below,
+    with repository permission <b>Contents: Read and write</b>. Nothing else.
+  </p>
+
+  <label>Personal Access Token</label>
+  <input id="pat" type="password" placeholder="github_pat_..." autocomplete="off" />
+
+  <div class="row">
+    <div>
+      <label>Repo owner</label>
+      <input id="owner" type="text" placeholder="Ankita7033" />
+    </div>
+    <div>
+      <label>Repo name</label>
+      <input id="repo" type="text" placeholder="GFG_solution" />
+    </div>
+  </div>
+
+  <label>Branch</label>
+  <input id="branch" type="text" placeholder="main" />
+
+  <button id="save">Save</button>
+  <button id="test">Test connection</button>
+
+  <div id="status"></div>
+
+  <h2 style="font-size:15px;margin-top:28px;">Recent activity</h2>
+  <div id="log" style="font-size:13px;"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

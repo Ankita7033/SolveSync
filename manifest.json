@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "GFG Solution Sync",
+  "version": "1.0.0",
+  "description": "Automatically pushes your Accepted GeeksforGeeks Practice solutions to a GitHub repo.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.geeksforgeeks.org/*",
+    "https://practice.geeksforgeeks.org/*",
+    "https://api.github.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.geeksforgeeks.org/problems/*",
+        "https://practice.geeksforgeeks.org/problems/*"
+      ],
+      "js": ["src/inject.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.geeksforgeeks.org/problems/*",
+        "https://practice.geeksforgeeks.org/problems/*"
+      ],
+      "js": ["src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "GFG Solution Sync"
+  },
+  "options_page": "src/options.html",
+  "minimum_chrome_version": "111"
+}
