@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "CodeChef → GitHub Sync",
+  "version": "1.0.0",
+  "description": "Automatically pushes your accepted CodeChef solutions to a GitHub repository the moment they are judged AC.",
+  "permissions": ["storage", "notifications"],
+  "host_permissions": [
+    "https://www.codechef.com/*",
+    "https://api.github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CodeChef → GitHub Sync"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.codechef.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://www.codechef.com/*"]
+    }
+  ]
+}
