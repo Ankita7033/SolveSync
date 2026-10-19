@@ -7,12 +7,11 @@ later, with the problem name and language in the commit message. No copy-paste, 
 
 ## Why I built it
 
-I practise DSA every day on GeeksforGeeks, CodeChef and AtCoder, and I wanted a record of it: something I could look
-back on to see how much I've learned, and that recruiters could see too. LeetCode already had
-[LeetHub](https://github.com/arunbhardwaj/LeetHub-2.0), which I use, but these three platforms had nothing like it.
-Copying every solution to GitHub by hand was tedious enough that I kept skipping it, so I automated it.
+I practise DSA every day on GeeksforGeeks, CodeChef and AtCoder, and I wanted a record of it on GitHub: something I
+could look back on to see how much I've learned, and that recruiters could see too.
 
-I started with GeeksforGeeks, used it daily, then built the same tool for CodeChef and AtCoder.
+For AtCoder and CodeChef nothing like this existed, so I built my own extensions first. For GeeksforGeeks I used an
+existing extension until it started throwing errors and stopped syncing, so I built a replacement.
 My [GFG_solution](https://github.com/Ankita7033/GFG_solution) repo is kept up to date by it.
 
 ## Status
